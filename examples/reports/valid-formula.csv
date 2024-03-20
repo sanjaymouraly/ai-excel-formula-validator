@@ -1,0 +1,11 @@
+run,benchmark,candidate,reference,case,seed,expected,actual,passed,reference_validated,mutation
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),0,42,100,100,True,True,Coincidental original sample
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),1,42,107,107,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Controlled boundary mutation.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),2,42,1853,1853,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 2; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),3,42,761,761,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 3; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),4,42,1035,1035,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 4; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),5,42,935,935,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 5; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),6,42,786,786,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 6; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),7,42,1020,1020,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 7; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),8,42,479,479,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 8; includes growth/edge cases.
+8c8d6358c3bc4923a80eae1652bdd343,sales_total,'=SUM(B2:B100)+0,'=SUM(B2:B100),9,42,513,513,True,True,Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 9; includes growth/edge cases.

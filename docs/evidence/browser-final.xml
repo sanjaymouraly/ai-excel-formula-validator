@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="61.838" timestamp="2026-10-19T05:28:45.356871+00:00" hostname="codespaces-a060a0"><testcase classname="tests.e2e.test_dashboard" name="test_connected_dashboard_workflows" time="59.769" /></testsuite></testsuites>

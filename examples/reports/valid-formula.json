@@ -1,0 +1,1229 @@
+{
+  "id": "8c8d6358c3bc4923a80eae1652bdd343",
+  "request": {
+    "benchmark": "sales_total",
+    "candidate": "=SUM(B2:B100)+0",
+    "reference": null,
+    "cases": 10,
+    "seed": 42,
+    "atol": 1e-08,
+    "rtol": 1e-07,
+    "minimize": true,
+    "project": "Default",
+    "provider": "manual",
+    "model": "manual",
+    "generation": null,
+    "upload_id": null,
+    "sheet": "Data",
+    "target": "H2",
+    "mutation_cells": []
+  },
+  "reference": "=SUM(B2:B100)",
+  "benchmark_version": 1,
+  "inspection": {
+    "errors": [],
+    "warnings": [
+      "Literal 0: verify it is an intended constant",
+      "Only relative references; check copy/fill behavior"
+    ],
+    "references": [
+      "B2:B100"
+    ],
+    "functions": [
+      "SUM"
+    ],
+    "unsupported": []
+  },
+  "backend": {
+    "name": "LibreOffice Calc",
+    "version": "LibreOffice 24.2.7.2 420(Build:2)",
+    "isolated": true,
+    "trust_mode": "network-disabled bubblewrap; unprivileged; resource limited"
+  },
+  "status": "Passed Tested Cases",
+  "passed": 10,
+  "failed": 0,
+  "reference_failures": 0,
+  "cases": [
+    {
+      "index": 0,
+      "seed": 42,
+      "mutation": "Coincidental original sample",
+      "expected": 100,
+      "actual": 100,
+      "oracle": 100,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {}
+    },
+    {
+      "index": 1,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Controlled boundary mutation.",
+      "expected": 107,
+      "actual": 107,
+      "oracle": 107,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "B6": {
+          "before": 0,
+          "after": 7
+        },
+        "C6": {
+          "before": 0,
+          "after": 7
+        }
+      }
+    },
+    {
+      "index": 2,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 2; includes growth/edge cases.",
+      "expected": 1853,
+      "actual": 1853,
+      "oracle": 1853,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "A12": {
+          "before": null,
+          "after": "East"
+        },
+        "A13": {
+          "before": null,
+          "after": "East"
+        },
+        "A14": {
+          "before": null,
+          "after": "East"
+        },
+        "A15": {
+          "before": null,
+          "after": "East"
+        },
+        "A16": {
+          "before": null,
+          "after": "East"
+        },
+        "A17": {
+          "before": null,
+          "after": "East"
+        },
+        "A18": {
+          "before": null,
+          "after": "East"
+        },
+        "A19": {
+          "before": null,
+          "after": "East"
+        },
+        "A20": {
+          "before": null,
+          "after": "East"
+        },
+        "A21": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 128
+        },
+        "B3": {
+          "before": 20,
+          "after": 172
+        },
+        "B4": {
+          "before": 30,
+          "after": 36
+        },
+        "B5": {
+          "before": 40,
+          "after": 120
+        },
+        "B6": {
+          "before": 0,
+          "after": 74
+        },
+        "B7": {
+          "before": null,
+          "after": 21
+        },
+        "B8": {
+          "before": null,
+          "after": 90
+        },
+        "B9": {
+          "before": null,
+          "after": 2
+        },
+        "B10": {
+          "before": null,
+          "after": 72
+        },
+        "B11": {
+          "before": null,
+          "after": 58
+        },
+        "B12": {
+          "before": null,
+          "after": 190
+        },
+        "B13": {
+          "before": null,
+          "after": 119
+        },
+        "B14": {
+          "before": null,
+          "after": 115
+        },
+        "B15": {
+          "before": null,
+          "after": 196
+        },
+        "B16": {
+          "before": null,
+          "after": 139
+        },
+        "B17": {
+          "before": null,
+          "after": 7
+        },
+        "B18": {
+          "before": null,
+          "after": 110
+        },
+        "B19": {
+          "before": null,
+          "after": 123
+        },
+        "B20": {
+          "before": null,
+          "after": 58
+        },
+        "B21": {
+          "before": null,
+          "after": 23
+        },
+        "C2": {
+          "before": 10,
+          "after": 128
+        },
+        "C3": {
+          "before": 20,
+          "after": 172
+        },
+        "C4": {
+          "before": 30,
+          "after": 36
+        },
+        "C5": {
+          "before": 40,
+          "after": 120
+        },
+        "C6": {
+          "before": 0,
+          "after": 74
+        },
+        "C7": {
+          "before": null,
+          "after": 21
+        },
+        "C8": {
+          "before": null,
+          "after": 90
+        },
+        "C9": {
+          "before": null,
+          "after": 2
+        },
+        "C10": {
+          "before": null,
+          "after": 72
+        },
+        "C11": {
+          "before": null,
+          "after": 58
+        },
+        "C12": {
+          "before": null,
+          "after": 190
+        },
+        "C13": {
+          "before": null,
+          "after": 119
+        },
+        "C14": {
+          "before": null,
+          "after": 115
+        },
+        "C15": {
+          "before": null,
+          "after": 196
+        },
+        "C16": {
+          "before": null,
+          "after": 139
+        },
+        "C17": {
+          "before": null,
+          "after": 7
+        },
+        "C18": {
+          "before": null,
+          "after": 110
+        },
+        "C19": {
+          "before": null,
+          "after": 123
+        },
+        "C20": {
+          "before": null,
+          "after": 58
+        },
+        "C21": {
+          "before": null,
+          "after": 23
+        }
+      }
+    },
+    {
+      "index": 3,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 3; includes growth/edge cases.",
+      "expected": 761,
+      "actual": 761,
+      "oracle": 761,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "A12": {
+          "before": null,
+          "after": "East"
+        },
+        "A13": {
+          "before": null,
+          "after": "East"
+        },
+        "A14": {
+          "before": null,
+          "after": "East"
+        },
+        "A15": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 44
+        },
+        "B3": {
+          "before": 20,
+          "after": 14
+        },
+        "B4": {
+          "before": 30,
+          "after": -22
+        },
+        "B5": {
+          "before": 40,
+          "after": 118
+        },
+        "B6": {
+          "before": 0,
+          "after": 54
+        },
+        "B7": {
+          "before": null,
+          "after": 114
+        },
+        "B8": {
+          "before": null,
+          "after": -32
+        },
+        "B9": {
+          "before": null,
+          "after": 76
+        },
+        "B10": {
+          "before": null,
+          "after": 92
+        },
+        "B11": {
+          "before": null,
+          "after": 105
+        },
+        "B12": {
+          "before": null,
+          "after": 76
+        },
+        "B13": {
+          "before": null,
+          "after": 23
+        },
+        "B14": {
+          "before": null,
+          "after": 129
+        },
+        "B15": {
+          "before": null,
+          "after": -30
+        },
+        "C2": {
+          "before": 10,
+          "after": 44
+        },
+        "C3": {
+          "before": 20,
+          "after": 14
+        },
+        "C4": {
+          "before": 30,
+          "after": -22
+        },
+        "C5": {
+          "before": 40,
+          "after": 118
+        },
+        "C6": {
+          "before": 0,
+          "after": 54
+        },
+        "C7": {
+          "before": null,
+          "after": 114
+        },
+        "C8": {
+          "before": null,
+          "after": -32
+        },
+        "C9": {
+          "before": null,
+          "after": 76
+        },
+        "C10": {
+          "before": null,
+          "after": 92
+        },
+        "C11": {
+          "before": null,
+          "after": 105
+        },
+        "C12": {
+          "before": null,
+          "after": 76
+        },
+        "C13": {
+          "before": null,
+          "after": 23
+        },
+        "C14": {
+          "before": null,
+          "after": 129
+        },
+        "C15": {
+          "before": null,
+          "after": -30
+        }
+      }
+    },
+    {
+      "index": 4,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 4; includes growth/edge cases.",
+      "expected": 1035,
+      "actual": 1035,
+      "oracle": 1035,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 110
+        },
+        "B3": {
+          "before": 20,
+          "after": 172
+        },
+        "B4": {
+          "before": 30,
+          "after": 108
+        },
+        "B5": {
+          "before": 40,
+          "after": 99
+        },
+        "B6": {
+          "before": 0,
+          "after": 136
+        },
+        "B7": {
+          "before": null,
+          "after": 161
+        },
+        "B8": {
+          "before": null,
+          "after": 28
+        },
+        "B9": {
+          "before": null,
+          "after": 24
+        },
+        "B10": {
+          "before": null,
+          "after": 50
+        },
+        "B11": {
+          "before": null,
+          "after": 147
+        },
+        "C2": {
+          "before": 10,
+          "after": 110
+        },
+        "C3": {
+          "before": 20,
+          "after": 172
+        },
+        "C4": {
+          "before": 30,
+          "after": 108
+        },
+        "C5": {
+          "before": 40,
+          "after": 99
+        },
+        "C6": {
+          "before": 0,
+          "after": 136
+        },
+        "C7": {
+          "before": null,
+          "after": 161
+        },
+        "C8": {
+          "before": null,
+          "after": 28
+        },
+        "C9": {
+          "before": null,
+          "after": 24
+        },
+        "C10": {
+          "before": null,
+          "after": 50
+        },
+        "C11": {
+          "before": null,
+          "after": 147
+        }
+      }
+    },
+    {
+      "index": 5,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 5; includes growth/edge cases.",
+      "expected": 935,
+      "actual": 935,
+      "oracle": 935,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "A12": {
+          "before": null,
+          "after": "East"
+        },
+        "A13": {
+          "before": null,
+          "after": "East"
+        },
+        "A14": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 53
+        },
+        "B3": {
+          "before": 20,
+          "after": 79
+        },
+        "B4": {
+          "before": 30,
+          "after": 80
+        },
+        "B5": {
+          "before": 40,
+          "after": 156
+        },
+        "B6": {
+          "before": 0,
+          "after": 126
+        },
+        "B7": {
+          "before": null,
+          "after": 55
+        },
+        "B8": {
+          "before": null,
+          "after": 29
+        },
+        "B9": {
+          "before": null,
+          "after": 62
+        },
+        "B10": {
+          "before": null,
+          "after": 3
+        },
+        "B11": {
+          "before": null,
+          "after": 85
+        },
+        "B12": {
+          "before": null,
+          "after": 145
+        },
+        "B13": {
+          "before": null,
+          "after": 88
+        },
+        "B14": {
+          "before": null,
+          "after": -26
+        },
+        "C2": {
+          "before": 10,
+          "after": 53
+        },
+        "C3": {
+          "before": 20,
+          "after": 79
+        },
+        "C4": {
+          "before": 30,
+          "after": 80
+        },
+        "C5": {
+          "before": 40,
+          "after": 156
+        },
+        "C6": {
+          "before": 0,
+          "after": 126
+        },
+        "C7": {
+          "before": null,
+          "after": 55
+        },
+        "C8": {
+          "before": null,
+          "after": 29
+        },
+        "C9": {
+          "before": null,
+          "after": 62
+        },
+        "C10": {
+          "before": null,
+          "after": 3
+        },
+        "C11": {
+          "before": null,
+          "after": 85
+        },
+        "C12": {
+          "before": null,
+          "after": 145
+        },
+        "C13": {
+          "before": null,
+          "after": 88
+        },
+        "C14": {
+          "before": null,
+          "after": -26
+        }
+      }
+    },
+    {
+      "index": 6,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 6; includes growth/edge cases.",
+      "expected": 786,
+      "actual": 786,
+      "oracle": 786,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "A12": {
+          "before": null,
+          "after": "East"
+        },
+        "A13": {
+          "before": null,
+          "after": "East"
+        },
+        "A14": {
+          "before": null,
+          "after": "East"
+        },
+        "A15": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 79
+        },
+        "B3": {
+          "before": 20,
+          "after": 171
+        },
+        "B4": {
+          "before": 30,
+          "after": 4
+        },
+        "B5": {
+          "before": 40,
+          "after": -12
+        },
+        "B6": {
+          "before": 0,
+          "after": 35
+        },
+        "B7": {
+          "before": null,
+          "after": 112
+        },
+        "B8": {
+          "before": null,
+          "after": 46
+        },
+        "B9": {
+          "before": null,
+          "after": 105
+        },
+        "B10": {
+          "before": null,
+          "after": -20
+        },
+        "B11": {
+          "before": null,
+          "after": 19
+        },
+        "B12": {
+          "before": null,
+          "after": 132
+        },
+        "B13": {
+          "before": null,
+          "after": 45
+        },
+        "B14": {
+          "before": null,
+          "after": 19
+        },
+        "B15": {
+          "before": null,
+          "after": 51
+        },
+        "C2": {
+          "before": 10,
+          "after": 79
+        },
+        "C3": {
+          "before": 20,
+          "after": 171
+        },
+        "C4": {
+          "before": 30,
+          "after": 4
+        },
+        "C5": {
+          "before": 40,
+          "after": -12
+        },
+        "C6": {
+          "before": 0,
+          "after": 35
+        },
+        "C7": {
+          "before": null,
+          "after": 112
+        },
+        "C8": {
+          "before": null,
+          "after": 46
+        },
+        "C9": {
+          "before": null,
+          "after": 105
+        },
+        "C10": {
+          "before": null,
+          "after": -20
+        },
+        "C11": {
+          "before": null,
+          "after": 19
+        },
+        "C12": {
+          "before": null,
+          "after": 132
+        },
+        "C13": {
+          "before": null,
+          "after": 45
+        },
+        "C14": {
+          "before": null,
+          "after": 19
+        },
+        "C15": {
+          "before": null,
+          "after": 51
+        }
+      }
+    },
+    {
+      "index": 7,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 7; includes growth/edge cases.",
+      "expected": 1020,
+      "actual": 1020,
+      "oracle": 1020,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "A8": {
+          "before": null,
+          "after": "East"
+        },
+        "A9": {
+          "before": null,
+          "after": "East"
+        },
+        "A10": {
+          "before": null,
+          "after": "East"
+        },
+        "A11": {
+          "before": null,
+          "after": "East"
+        },
+        "A12": {
+          "before": null,
+          "after": "East"
+        },
+        "A13": {
+          "before": null,
+          "after": "East"
+        },
+        "A14": {
+          "before": null,
+          "after": "East"
+        },
+        "A15": {
+          "before": null,
+          "after": "East"
+        },
+        "A16": {
+          "before": null,
+          "after": "East"
+        },
+        "A17": {
+          "before": null,
+          "after": "East"
+        },
+        "A18": {
+          "before": null,
+          "after": "East"
+        },
+        "A19": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": -33
+        },
+        "B3": {
+          "before": 20,
+          "after": 164
+        },
+        "B4": {
+          "before": 30,
+          "after": 13
+        },
+        "B5": {
+          "before": 40,
+          "after": -1
+        },
+        "B6": {
+          "before": 0,
+          "after": 97
+        },
+        "B7": {
+          "before": null,
+          "after": 0
+        },
+        "B8": {
+          "before": null,
+          "after": 4
+        },
+        "B9": {
+          "before": null,
+          "after": 116
+        },
+        "B10": {
+          "before": null,
+          "after": 99
+        },
+        "B11": {
+          "before": null,
+          "after": 27
+        },
+        "B12": {
+          "before": null,
+          "after": 11
+        },
+        "B13": {
+          "before": null,
+          "after": 53
+        },
+        "B14": {
+          "before": null,
+          "after": 143
+        },
+        "B15": {
+          "before": null,
+          "after": 95
+        },
+        "B16": {
+          "before": null,
+          "after": 18
+        },
+        "B17": {
+          "before": null,
+          "after": 18
+        },
+        "B18": {
+          "before": null,
+          "after": -4
+        },
+        "B19": {
+          "before": null,
+          "after": 200
+        },
+        "C2": {
+          "before": 10,
+          "after": -33
+        },
+        "C3": {
+          "before": 20,
+          "after": 164
+        },
+        "C4": {
+          "before": 30,
+          "after": 13
+        },
+        "C5": {
+          "before": 40,
+          "after": -1
+        },
+        "C6": {
+          "before": 0,
+          "after": 97
+        },
+        "C7": {
+          "before": null,
+          "after": 0
+        },
+        "C8": {
+          "before": null,
+          "after": 4
+        },
+        "C9": {
+          "before": null,
+          "after": 116
+        },
+        "C10": {
+          "before": null,
+          "after": 99
+        },
+        "C11": {
+          "before": null,
+          "after": 27
+        },
+        "C12": {
+          "before": null,
+          "after": 11
+        },
+        "C13": {
+          "before": null,
+          "after": 53
+        },
+        "C14": {
+          "before": null,
+          "after": 143
+        },
+        "C15": {
+          "before": null,
+          "after": 95
+        },
+        "C16": {
+          "before": null,
+          "after": 18
+        },
+        "C17": {
+          "before": null,
+          "after": 18
+        },
+        "C18": {
+          "before": null,
+          "after": -4
+        },
+        "C19": {
+          "before": null,
+          "after": 200
+        }
+      }
+    },
+    {
+      "index": 8,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 8; includes growth/edge cases.",
+      "expected": 479,
+      "actual": 479,
+      "oracle": 479,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "A7": {
+          "before": null,
+          "after": "East"
+        },
+        "B2": {
+          "before": 10,
+          "after": 185
+        },
+        "B3": {
+          "before": 20,
+          "after": 54
+        },
+        "B4": {
+          "before": 30,
+          "after": 7
+        },
+        "B5": {
+          "before": 40,
+          "after": 69
+        },
+        "B6": {
+          "before": 0,
+          "after": 95
+        },
+        "B7": {
+          "before": null,
+          "after": 69
+        },
+        "C2": {
+          "before": 10,
+          "after": 185
+        },
+        "C3": {
+          "before": 20,
+          "after": 54
+        },
+        "C4": {
+          "before": 30,
+          "after": 7
+        },
+        "C5": {
+          "before": 40,
+          "after": 69
+        },
+        "C6": {
+          "before": 0,
+          "after": 95
+        },
+        "C7": {
+          "before": null,
+          "after": 69
+        }
+      }
+    },
+    {
+      "index": 9,
+      "seed": 42,
+      "mutation": "Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 9; includes growth/edge cases.",
+      "expected": 513,
+      "actual": 513,
+      "oracle": 513,
+      "reference_validated": true,
+      "reference_ok": true,
+      "passed": true,
+      "changes": {
+        "B2": {
+          "before": 10,
+          "after": 29
+        },
+        "B3": {
+          "before": 20,
+          "after": 141
+        },
+        "B4": {
+          "before": 30,
+          "after": 168
+        },
+        "B5": {
+          "before": 40,
+          "after": 175
+        },
+        "C2": {
+          "before": 10,
+          "after": 29
+        },
+        "C3": {
+          "before": 20,
+          "after": 141
+        },
+        "C4": {
+          "before": 30,
+          "after": 168
+        },
+        "C5": {
+          "before": 40,
+          "after": 175
+        }
+      }
+    }
+  ],
+  "counterexample": null,
+  "warnings": [
+    "Passing finite tests is not proof of formula equivalence.",
+    "LibreOffice is not Microsoft Excel; see supported-function documentation."
+  ],
+  "artifacts": [
+    "case_000_reference.xlsx",
+    "case_000_candidate.xlsx"
+  ],
+  "latency_seconds": 3.626,
+  "accuracy": 1.0
+}

@@ -1,0 +1,29 @@
+{
+  "seconds": 47.602,
+  "bad": {
+    "id": "3a918e8961b64aeb94dd5b85ef3c91c7",
+    "status": "Counterexample Found",
+    "passed": 12,
+    "failed": 88,
+    "backend": {
+      "name": "LibreOffice Calc",
+      "version": "LibreOffice 24.2.7.2 420(Build:2)",
+      "isolated": true,
+      "trust_mode": "network-disabled bubblewrap; unprivileged; resource limited"
+    }
+  },
+  "good": {
+    "id": "10e295524e0d45ebba5286862de9fdf4",
+    "status": "Passed Tested Cases",
+    "passed": 100,
+    "failed": 0
+  },
+  "replay": {
+    "run_id": "3a918e8961b64aeb94dd5b85ef3c91c7",
+    "case": 1,
+    "seed": 42,
+    "expected": 107,
+    "actual": 100,
+    "reproduced": true
+  }
+}

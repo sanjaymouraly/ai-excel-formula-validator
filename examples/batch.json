@@ -1,0 +1,5 @@
+[
+  {"benchmark":"sales_total","candidate":"=SUM(B2:B5)","cases":10,"seed":42,"project":"Sales regression"},
+  {"benchmark":"sales_total","candidate":"=SUM(B2:B100)+0","cases":10,"seed":42,"project":"Sales regression"},
+  {"benchmark":"dates","candidate":"=SUMIFS(B2:B100,A2:A100,\">=\"&DATE(2024,1,1),A2:A100,\"<\"&DATE(2024,1,31))","cases":10,"seed":42,"project":"Date boundaries"}
+]

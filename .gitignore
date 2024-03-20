@@ -1,0 +1,27 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+data/
+*.sqlite*
+*.log
+playwright-report/
+test-results/
+
+# Local caches and generated files
+.mypy_cache/
+node_modules/
+*.db
+*.sqlite3
+coverage/
+htmlcov/
+.next/
+CHANGELOG.md

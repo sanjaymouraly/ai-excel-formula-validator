@@ -1,0 +1,147 @@
+{
+  "provider": "bynara-laguna",
+  "kind": "compatible",
+  "base_url": "https://router.bynara.id/v1",
+  "model": "laguna-s-2.1",
+  "cases_per_benchmark": 10,
+  "seed": 42,
+  "backend": {
+    "name": "LibreOffice Calc",
+    "version": "LibreOffice 24.2.7.2 420(Build:2)",
+    "isolated": true,
+    "trust_mode": "network-disabled bubblewrap; unprivileged; resource limited"
+  },
+  "results": [
+    {
+      "benchmark": "sales_total",
+      "formula": "=SUM(B2:B100)",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 3.635,
+      "usage": {
+        "completion_tokens": 10,
+        "prompt_tokens": 182,
+        "total_tokens": 192
+      },
+      "run_id": "abb34219e16c40119367581633ec55f6"
+    },
+    {
+      "benchmark": "regional",
+      "formula": "=SUMIF(A2:A100,\"East\",B2:B100)",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 4.022,
+      "usage": {
+        "completion_tokens": 20,
+        "prompt_tokens": 177,
+        "total_tokens": 197
+      },
+      "run_id": "ea6da4fcdd8f46ffba58a887130cc050"
+    },
+    {
+      "benchmark": "inventory",
+      "formula": "=COUNTIF(B2:B100,\"<10\")",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 4.229,
+      "usage": {
+        "completion_tokens": 15,
+        "prompt_tokens": 176,
+        "total_tokens": 191
+      },
+      "run_id": "628331fb604048ffb53dbbca143d0ed5"
+    },
+    {
+      "benchmark": "invoices",
+      "formula": "=SUMPRODUCT((Data!A2:A100<>\"\")*(Data!B2:B100-Data!C2:C100))",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 5.506,
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 176,
+        "total_tokens": 210
+      },
+      "run_id": "e72ffef569324a0a910a0d7e143c28ad"
+    },
+    {
+      "benchmark": "budget",
+      "formula": "=SUMPRODUCT((Data!A2:A100<>\"\")*(Data!C2:C100-Data!B2:B100))",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 4.231,
+      "usage": {
+        "completion_tokens": 34,
+        "prompt_tokens": 172,
+        "total_tokens": 206
+      },
+      "run_id": "1d99649433ec48d39dc4f7994567002c"
+    },
+    {
+      "benchmark": "dates",
+      "formula": "=SUMIFS(B2:B100,A2:A100,\">=2024-01-01\",A2:A100,\"<=2024-01-31\")",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 6.76,
+      "usage": {
+        "completion_tokens": 49,
+        "prompt_tokens": 188,
+        "total_tokens": 237
+      },
+      "run_id": "d7274539228c4d7ebb8e2b82d8116436"
+    },
+    {
+      "benchmark": "weighted",
+      "formula": "=IF(SUM(C2:C100)=0,0,SUMPRODUCT(B2:B100,C2:C100)/SUM(C2:C100))",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 4.771,
+      "usage": {
+        "completion_tokens": 38,
+        "prompt_tokens": 183,
+        "total_tokens": 221
+      },
+      "run_id": "d10c8a0db60b41418d3f3cb8323bd797"
+    },
+    {
+      "benchmark": "lookup",
+      "formula": "=IFERROR(INDEX(B2:B100,MATCH(F2,A2:A100,0)),\"missing\")",
+      "status": "Passed Tested Cases",
+      "passed": 10,
+      "failed": 0,
+      "scored_cases": 10,
+      "counterexample": false,
+      "latency_seconds": 8.128,
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 193,
+        "total_tokens": 221
+      },
+      "run_id": "9b5c3117d82740548e88469260d2b729"
+    }
+  ],
+  "passed_evaluations": 8,
+  "counterexamples": 0,
+  "scored": 8
+}

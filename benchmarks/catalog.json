@@ -1,0 +1,344 @@
+[
+  {
+    "id": "sales_total",
+    "title": "Sales \u2022 omitted final row",
+    "category": "Sales",
+    "difficulty": "easy",
+    "description": "Total all sales, including newly appended records, in B2:B100.",
+    "reference": "=SUM(B2:B100)",
+    "defective": "=SUM(B2:B5)",
+    "failure": "Last row starts at zero; nonzero final rows and expansion expose the omission.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "wrong_column",
+    "title": "Revenue \u2022 wrong column",
+    "category": "Sales",
+    "difficulty": "easy",
+    "description": "Total revenue from B, not the coincidentally equal values in C.",
+    "reference": "=SUM(B2:B100)",
+    "defective": "=SUM(C2:C100)",
+    "failure": "B and C match only in the baseline.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "hardcoded",
+    "title": "Revenue \u2022 hardcoded result",
+    "category": "Sales",
+    "difficulty": "easy",
+    "description": "Sum revenue in B2:B100 as inputs change.",
+    "reference": "=SUM(B2:B100)",
+    "defective": "=100",
+    "failure": "A constant matches only the original total.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "aggregation",
+    "title": "KPI \u2022 SUM versus AVERAGE",
+    "category": "KPI",
+    "difficulty": "easy",
+    "description": "Compute the arithmetic average of numeric B cells, ignoring blanks.",
+    "reference": "=AVERAGE(B2:B100)",
+    "defective": "=SUM(B2:B100)",
+    "failure": "All-zero baseline hides the aggregation error.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "regional",
+    "title": "Regional revenue \u2022 condition",
+    "category": "Conditional aggregation",
+    "difficulty": "medium",
+    "description": "Sum B only for rows whose region in A is East.",
+    "reference": "=SUMIF(A2:A100,\"East\",B2:B100)",
+    "defective": "=SUMIF(A2:A100,\"West\",B2:B100)",
+    "failure": "Balanced sample regions hide an inverted condition.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "discount_tax",
+    "title": "Discounts & multi-sheet tax",
+    "category": "Finance",
+    "difficulty": "medium",
+    "description": "Sum quantity B times unit price C, apply discount F2 and tax Rates!B2.",
+    "reference": "=SUMPRODUCT(B2:B100,C2:C100)*(1-$F$2)*(1+Rates!B2)",
+    "defective": "=SUMPRODUCT(B2:B100,C2:C100)*(1+Rates!B2)",
+    "failure": "Zero initial discount hides a missing deduction.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "profit",
+    "title": "Operating profit margin",
+    "category": "Finance",
+    "difficulty": "medium",
+    "description": "Net margin equals (total revenue B minus total expense C) divided by revenue; return 0 when revenue is 0.",
+    "reference": "=IFERROR((SUM(B2:B100)-SUM(C2:C100))/SUM(B2:B100),0)",
+    "defective": "=IFERROR(SUM(C2:C100)/SUM(B2:B100),0)",
+    "failure": "Equal cost and profit in the baseline mask a misleading margin.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "inventory",
+    "title": "Inventory \u2022 reorder count",
+    "category": "Inventory",
+    "difficulty": "easy",
+    "description": "Count items with stock B strictly below 10.",
+    "reference": "=COUNTIF(B2:B100,\"<10\")",
+    "defective": "=COUNTIF(B2:B100,\"<=10\")",
+    "failure": "Boundary stock of 10 exposes inclusive/exclusive error.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "payroll",
+    "title": "Payroll \u2022 fixed hourly rate",
+    "category": "Payroll",
+    "difficulty": "medium",
+    "description": "Pay row 3 hours B3 at the fixed rate F2; formula is the copy-down result from row 2.",
+    "reference": "=B3*$F$2",
+    "defective": "=B3*F3",
+    "failure": "F3 happens to equal F2, until the next record changes.",
+    "version": 1,
+    "target": "H3",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "delivery",
+    "title": "Supplier on-time deliveries",
+    "category": "Suppliers",
+    "difficulty": "medium",
+    "description": "Count supplier Acme deliveries taking at most 5 days (B).",
+    "reference": "=COUNTIFS(A2:A100,\"Acme\",B2:B100,\"<=5\")",
+    "defective": "=COUNTIFS(A2:A100,\"Acme\",B2:B100,\"<5\")",
+    "failure": "Deliveries taking exactly five days expose the cutoff.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "invoices",
+    "title": "Outstanding customer balances",
+    "category": "Invoices",
+    "difficulty": "easy",
+    "description": "Total invoice amounts B less payments C, including credits.",
+    "reference": "=SUM(B2:B100)-SUM(C2:C100)",
+    "defective": "=SUM(B2:B100)",
+    "failure": "Initially there are no payments.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "budget",
+    "title": "Budget versus actual variance",
+    "category": "Budget",
+    "difficulty": "easy",
+    "description": "Compute actual C minus budget B.",
+    "reference": "=SUM(C2:C100)-SUM(B2:B100)",
+    "defective": "=SUM(B2:B100)-SUM(C2:C100)",
+    "failure": "A balanced initial budget hides the reversed subtraction.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "weighted",
+    "title": "Weighted KPI",
+    "category": "KPI",
+    "difficulty": "difficult",
+    "description": "Compute weighted mean of scores B with weights C; return zero if total weight is zero.",
+    "reference": "=IFERROR(SUMPRODUCT(B2:B100,C2:C100)/SUM(C2:C100),0)",
+    "defective": "=AVERAGE(B2:B100)",
+    "failure": "Equal initial weights hide an unweighted average.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "lookup",
+    "title": "Customer lookup \u2022 first match",
+    "category": "Lookup",
+    "difficulty": "difficult",
+    "description": "Look up key F2 in A and return the first matching B, or text missing. Preserve first-match behavior with duplicates and reordered inputs.",
+    "reference": "=IFERROR(VLOOKUP(F2,A2:B100,2,FALSE),\"missing\")",
+    "defective": "=IFERROR(VLOOKUP(F2,A2:B100,2,TRUE),\"missing\")",
+    "failure": "Unsorted, duplicate and missing keys expose approximate-match lookup.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "index_match",
+    "title": "Inventory INDEX/MATCH",
+    "category": "Lookup",
+    "difficulty": "medium",
+    "description": "Return B for first exact key F2 in A, otherwise missing.",
+    "reference": "=IFERROR(INDEX(B2:B100,MATCH(F2,A2:A100,0)),\"missing\")",
+    "defective": "=IFERROR(INDEX(B2:B100,MATCH(F2,A2:A100,1)),\"missing\")",
+    "failure": "Approximate matching fails on absent or reordered keys.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "dates",
+    "title": "Month-end invoice boundary",
+    "category": "Dates",
+    "difficulty": "difficult",
+    "description": "Sum invoices B dated in January 2024, including January 31 and excluding February 1.",
+    "reference": "=SUMIFS(B2:B100,A2:A100,\">=\"&DATE(2024,1,1),A2:A100,\"<\"&DATE(2024,2,1))",
+    "defective": "=SUMIFS(B2:B100,A2:A100,\">=\"&DATE(2024,1,1),A2:A100,\"<\"&DATE(2024,1,31))",
+    "failure": "Month-end dates reveal an off-by-one cutoff.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "negatives",
+    "title": "Net revenue \u2022 credits & blanks",
+    "category": "Edge cases",
+    "difficulty": "medium",
+    "description": "Sum all revenue, including negative credits, zero and blank rows.",
+    "reference": "=SUM(B2:B100)",
+    "defective": "=SUMIF(B2:B100,\">0\",B2:B100)",
+    "failure": "Positive-only aggregation silently discards refunds.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "nested_if",
+    "title": "Nested KPI classification",
+    "category": "Logic",
+    "difficulty": "medium",
+    "description": "Classify B2: high at 100 or more, medium at 50 or more, otherwise low.",
+    "reference": "=IF(B2>=100,\"high\",IF(B2>=50,\"medium\",\"low\"))",
+    "defective": "=IF(B2>100,\"high\",IF(B2>50,\"medium\",\"low\"))",
+    "failure": "Exact thresholds reveal incorrect strict comparisons.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  },
+  {
+    "id": "errors",
+    "title": "Error propagation",
+    "category": "Edge cases",
+    "difficulty": "medium",
+    "description": "Compute B2/C2, preserving the division-by-zero error.",
+    "reference": "=B2/C2",
+    "defective": "=IFERROR(B2/C2,0)",
+    "failure": "A zero denominator must remain #DIV/0!, not a misleading zero.",
+    "version": 1,
+    "target": "H2",
+    "schema": {
+      "Data": "A: group/id/date, B: amount/quantity, C: price/actual, D: auxiliary; F2: fixed parameter",
+      "Rates": "B2: tax rate"
+    },
+    "generator": "Case 0 is the coincidental sample; case 1 is a controlled adversarial mutation; later cases use seed+case and boundary/expanded inputs.",
+    "expected_behavior": "Reference must agree with independent Python business-rule oracle before candidate is scored."
+  }
+]

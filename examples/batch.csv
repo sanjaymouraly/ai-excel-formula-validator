@@ -1,0 +1,4 @@
+benchmark,candidate,cases,seed,project
+sales_total,=SUM(B2:B5),10,42,Sales regression
+sales_total,=SUM(B2:B100)+0,10,42,Sales regression
+inventory,"=COUNTIF(B2:B100,""<=10"")",10,42,Inventory regression

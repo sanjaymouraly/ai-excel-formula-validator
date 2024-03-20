@@ -1,0 +1,21 @@
+# Direct dependency versions from the final executed regression environment.
+# Ubuntu 24.04, Python 3.12, LibreOffice Calc 24.2.7.2; not a transitive or
+# cross-platform lockfile. Upper bounds in pyproject.toml keep ranges portable.
+# Install with: python -m pip install -r requirements-tested.txt -e .
+fastapi==0.146.0
+uvicorn==0.54.0
+streamlit==1.66.0
+openpyxl==3.1.5
+pydantic==2.14.1
+sqlalchemy==2.1.5
+pandas==3.0.6
+numpy==2.5.4
+plotly==6.9.0
+httpx==0.28.1
+python-dotenv==1.2.4
+python-multipart==0.0.32
+typer==0.27.3
+pytest==9.1.1
+hypothesis==6.170.1
+ruff==0.17.1
+playwright==1.64.0

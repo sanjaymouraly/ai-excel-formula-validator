@@ -1,0 +1,37 @@
+services:
+  api:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    environment:
+      VERIFIER_DATA: /app/data
+      VERIFIER_API_TOKEN: ${VERIFIER_API_TOKEN:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      ENGINE_TIMEOUT: ${ENGINE_TIMEOUT:-90}
+    volumes: ["verifier-data:/app/data"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 128
+    mem_limit: 2g
+    cpus: 2
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/health',headers={'Authorization':'Bearer '+__import__('os').getenv('VERIFIER_API_TOKEN','')}))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "app/ui/dashboard.py", "--server.address", "0.0.0.0", "--server.port", "8501", "--server.headless", "true", "--browser.gatherUsageStats", "false"]
+    ports: ["127.0.0.1:8501:8501"]
+    environment:
+      VERIFIER_API_URL: http://api:8000
+      VERIFIER_API_TOKEN: ${VERIFIER_API_TOKEN:-}
+      VERIFIER_DASHBOARD_PASSWORD: ${VERIFIER_DASHBOARD_PASSWORD:-}
+    depends_on:
+      api:
+        condition: service_healthy
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  verifier-data:

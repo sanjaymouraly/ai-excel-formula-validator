@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Formula validation report</title><style>body{font:16px system-ui;max-width:1100px;margin:48px auto;color:#173348;padding:20px}code,pre{background:#eef4f8;padding:12px;display:block;white-space:pre-wrap}table{border-collapse:collapse;width:100%}td,th{padding:12px;border-bottom:1px solid #ddd;text-align:left}h1{color:#076c65}</style><h1>Formula validation • Counterexample Found</h1><p>Run 096262da414d4e81b77f4509ec991f49 · seed 42 · benchmark v1</p><h2>Candidate</h2><code>=SUM(B2:B5)</code><h2>Reference</h2><code>=SUM(B2:B100)</code><p>2 passed / 10 scored; 0 reference failures. Unsupported or inconclusive cases are not successes.</p><table><tr><th>Case</th><th>Expected</th><th>Actual</th><th>Result</th><th>Input change</th></tr><tr><td>0</td><td>100</td><td>100</td><td>PASS</td><td>Coincidental original sample</td></tr><tr><td>1</td><td>107</td><td>100</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Controlled boundary mutation.</td></tr><tr><td>2</td><td>1853</td><td>456</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 2; includes growth/edge cases.</td></tr><tr><td>3</td><td>761</td><td>154</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 3; includes growth/edge cases.</td></tr><tr><td>4</td><td>1035</td><td>489</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 4; includes growth/edge cases.</td></tr><tr><td>5</td><td>935</td><td>368</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 5; includes growth/edge cases.</td></tr><tr><td>6</td><td>786</td><td>242</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 6; includes growth/edge cases.</td></tr><tr><td>7</td><td>1020</td><td>143</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 7; includes growth/edge cases.</td></tr><tr><td>8</td><td>479</td><td>315</td><td>FAIL</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 8; includes growth/edge cases.</td></tr><tr><td>9</td><td>513</td><td>513</td><td>PASS</td><td>Last row starts at zero; nonzero final rows and expansion expose the omission. Seeded variant 9; includes growth/edge cases.</td></tr></table><h2>Counterexample</h2><pre>{
+  &quot;index&quot;: 1,
+  &quot;seed&quot;: 42,
+  &quot;mutation&quot;: &quot;Last row starts at zero; nonzero final rows and expansion expose the omission. Controlled boundary mutation.&quot;,
+  &quot;expected&quot;: 107,
+  &quot;actual&quot;: 100,
+  &quot;oracle&quot;: 107,
+  &quot;reference_validated&quot;: true,
+  &quot;reference_ok&quot;: true,
+  &quot;passed&quot;: false,
+  &quot;changes&quot;: {
+    &quot;B6&quot;: {
+      &quot;before&quot;: 0,
+      &quot;after&quot;: 7
+    },
+    &quot;C6&quot;: {
+      &quot;before&quot;: 0,
+      &quot;after&quot;: 7
+    }
+  },
+  &quot;fingerprint&quot;: &quot;3643f5dff5f4ae97&quot;,
+  &quot;explanation&quot;: &quot;Last row starts at zero; nonzero final rows and expansion expose the omission. Controlled boundary mutation. Reference returned 107; candidate returned 100. The original sample matched. Static warnings are separate from this execution evidence.&quot;,
+  &quot;suggested_correction&quot;: &quot;=SUM(B2:B100)&quot;,
+  &quot;minimized&quot;: {
+    &quot;expected&quot;: 77,
+    &quot;actual&quot;: 70,
+    &quot;method&quot;: &quot;bounded greedy cell deletion; reference re-executed, no independent minimized oracle&quot;
+  }
+}</pre><h2>Execution & limitations</h2><pre>{
+  &quot;name&quot;: &quot;LibreOffice Calc&quot;,
+  &quot;version&quot;: &quot;LibreOffice 24.2.7.2 420(Build:2)&quot;,
+  &quot;isolated&quot;: true,
+  &quot;trust_mode&quot;: &quot;network-disabled bubblewrap; unprivileged; resource limited&quot;
+}</pre><p>Passing finite tests is not proof of formula equivalence. LibreOffice is not Microsoft Excel; see supported-function documentation.</p><h2>Static warnings (not execution evidence)</h2><pre>{
+  &quot;errors&quot;: [],
+  &quot;warnings&quot;: [
+    &quot;Only relative references; check copy/fill behavior&quot;
+  ],
+  &quot;references&quot;: [
+    &quot;B2:B5&quot;
+  ],
+  &quot;functions&quot;: [
+    &quot;SUM&quot;
+  ],
+  &quot;unsupported&quot;: []
+}</pre></html>
